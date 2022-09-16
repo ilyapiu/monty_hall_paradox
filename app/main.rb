@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'monty_hall_paradox'
 
 GAMES = ARGV[0].to_i
