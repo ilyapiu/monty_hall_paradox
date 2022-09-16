@@ -1,6 +1,5 @@
 # frozen_string_literal: true
-
-class MontyHallPromblem
+class MontyHallParadox
   attr_reader :itterations, :will_change
   RANGE = (1..3).freeze
 
@@ -26,4 +25,5 @@ class MontyHallPromblem
     empty_door = RANGE.to_a.select { |e| ![car_door, choice].include?(e) }.sample
     choice = RANGE.to_a.select { |e| ![empty_door, choice].include?(e) }.sample if @will_change == 1
     choice == car_door
+  end
 end
