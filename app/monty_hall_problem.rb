@@ -4,13 +4,10 @@ class MontyHallPromblem
   RANGE = (1..3).freeze
 
   def simulate(change)
-    first_choice = rand(RANGE)
+    choice = rand(RANGE)
     car_door = rand(RANGE)
-    empty_door = rand(RANGE)
-    empty_door = rand(RANGE) while first_choice == empty_door || car_door == empty_door
-    choice = first_choice
-    choice = rand(RANGE) while choice == first_choice || choice == empty_door if change == 1
-
+    empty_door = RANGE.to_a.select { |e| ![car_door, choice].include?(e) }.sample
+    choice = RANGE.to_a.select { |e| ![empty_door, choice].include?(e) }.sample if change == 1
     choice == car_door
   end
 
@@ -18,11 +15,7 @@ class MontyHallPromblem
     win = 0
     lose = 0
     itterations.times do
-      if simulate(change)
-        win += 1
-      else
-        lose += 1
-      end
+      simulate(change) ? win += 1 : lose += 1
     end
 
     [win, lose]

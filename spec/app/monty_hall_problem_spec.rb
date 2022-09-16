@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MontyHallPromblem do
+RSpec.describe MontyHallProblem do
   let(:monty) { described_class.new }
   let(:arr_will_change) { monty.itterate(10_000, 1) }
   let(:arr_dont_change) { monty.itterate(10_000, 0) }
@@ -14,10 +14,6 @@ RSpec.describe MontyHallPromblem do
   end
 
   it 'if we will change choose win chance become higher' do
-    expect(arr_will_change[0] > arr_will_change[1]).to be(true)
-  end
-
-  it 'if we will change choose, win chance become higher' do
     expect(arr_will_change[0] > arr_will_change[1]).to be(true)
   end
 
