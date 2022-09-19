@@ -10,8 +10,7 @@ class MontyHallParadox
   end
 
   def simulate
-    win = 0
-    lose = 0
+    win,lose = 0, 0
     itterations.times do
       itterate ? win += 1 : lose += 1
     end
@@ -19,7 +18,7 @@ class MontyHallParadox
   end
   
   private
-  attr_reader :itterations, :will_change
+  attr_reader :itterations, :will_change 
   def itterate
     choice = rand(RANGE)
     car_door = rand(RANGE)
